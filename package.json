@@ -1,0 +1,27 @@
+{
+  "name": "nodejs2021",
+  "version": "1.0.0",
+  "description": "",
+  "main": "file.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dshelby24/nodeJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dshelby24/nodeJs/issues"
+  },
+  "homepage": "https://github.com/dshelby24/nodeJs#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.21"
+  }
+}
