@@ -12,4 +12,4 @@ const int = setInterval(()=>{
 }, 1000);
 
 console.log(__dirname);
-console.log(__filename);
+console.log(__filename);npm 
