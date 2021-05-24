@@ -1,62 +1,35 @@
-// const http = require('http');
-// const server = http.createServer((req, res) =>{
- 
-//     console.log('first',req.url, 'second', req.methodnode);
-//     res.setHeader('Content-Type', 'text/plain')
-    
-    
-//     res.write("<head><link rel = 'stylesheet' hred=\"#\" </head>");
-
-//     res.write('<h1>Hello Cicadas</h1>');
-//     res.write('<p>Hello Cicadas</p>');
-//     res.end();
-// });
-
-  // fs.readFile('./views/index.html', (err, data) => {
-  //   if (err) {
-  //     console.log(err);
-  //     res.end();
-  //   }
-  //   //res.write(data);
-  //   res.end(data);
-  // });
-
-
-
-// server.listen(3000, 'localhost', ()=> {
-//     console.log('listening for request on port 3000')
-// });
-
 
 const http = require('http');
 const fs = require('fs');
-const_ = require('lodash');
+const _ = require('lodash');
 
 const server = http.createServer((req, res) => {
+
   // lodash
-const num = _.random(0,20);
-console.log(num);
+  const num = _.random(0, 20);
+  console.log(num);
 
-  console.log(req.url, req.method);
+  const greet = _.once(() => {
+    console.log('hello');
+  });
+  greet();
+  greet();
 
-
-
-
-
+  // set header content type
   res.setHeader('Content-Type', 'text/html');
 
-
+  // routing
   let path = './views/';
   switch(req.url) {
     case '/':
-      path += 'about.html';
+      path += 'index.html';
       res.statusCode = 200;
       break;
     case '/about':
       path += 'about.html';
       res.statusCode = 200;
       break;
-    case '/about-me':
+    case '/about-us':
       res.statusCode = 301;
       res.setHeader('Location', '/about');
       res.end();
@@ -66,7 +39,7 @@ console.log(num);
       res.statusCode = 404;
   }
 
-//   send an html files
+  // send html
   fs.readFile(path, (err, data) => {
     if (err) {
       console.log(err);
@@ -79,7 +52,7 @@ console.log(num);
 
 });
 
-
+// localhost is the default value for 2nd argument
 server.listen(3000, 'localhost', () => {
   console.log('listening for requests on port 3000');
 });
